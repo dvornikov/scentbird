@@ -1,0 +1,88 @@
+.input {
+  @bl: ~'.input';
+  display: block;
+
+  &_has-float-label {
+    position: relative;
+
+    label, > span {
+      position: absolute;
+      left: 15px;
+      top: -10px;
+      cursor: text;
+      font-size: 75%;
+      opacity: 1;
+      transition: all .2s;
+      background: #fff;
+      padding: 5px 15px;
+      color: #9B9B9B;
+    }
+  }
+
+  &__control {
+    border: 1px solid #E6E6E6;
+    background: #FAFAFA;
+    color: #000;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    height: 50px;
+    padding: 0 15px;
+    vertical-align: baseline;
+
+    @{bl}_has-error & {
+      border: 1px solid #FF0000;
+    }
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #9B9B9B;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #9B9B9B;
+    }
+
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: #9B9B9B;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #9B9B9B;
+    }
+
+    &:focus {
+      background: #fff;
+      color: #000;
+    }
+
+    &::placeholder {
+      opacity: 1;
+      transition: all .2s;
+    }
+
+    &:not(:placeholder-shown) + * {
+      opacity: 0;
+    }
+
+    &:placeholder-shown:not(:focus)::placeholder {
+      opacity: 0;
+    }
+
+    &:placeholder-shown:not(:focus) + * {
+      font-size: 150%;
+      opacity: .5;
+      top: .50em;
+      padding: 0;
+      background: none;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    left: 0;
+    bottom: -1.15em;
+    color: #FF0000;
+  }
+}

@@ -1,0 +1,29 @@
+.page {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1226px;
+  /* width: 1166px; */
+  padding: 0 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &__header {
+    flex: 0 0 100%;
+    padding-top: 18px;
+    padding-bottom: 43px;
+  }
+
+  &__sidebar {
+    box-sizing: border-box;
+    flex: 0 0 33.33333333%;
+    max-width: 33.33333333%;
+    padding-right: 33px;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    flex: 0 0 66.66666667%;
+    max-width: 66.66666667%;
+    padding-left: 33px;
+  }
+}
