@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import CSSModules from 'react-css-modules';
+import React from 'react';
 import styles from './CardForm.module.less';
 import Select from '../Select'
 import Input from '../Input'
@@ -13,7 +11,7 @@ const range = (start, end) => ([...Array(end - start + 1).keys()].map((v, k) => 
 
 const CardForm = (props) => {
   return <form className={styles.form_type_card}>
-    <h3 className={styles.title}><img src={logo} className={styles.shield} />128-BIT ENCRYPTION. YOU’RE SAFE</h3>
+    <h3 className={styles.title}><img src={logo} className={styles.shield} alt="" />128-BIT ENCRYPTION. YOU’RE SAFE</h3>
     <FormGroup>
       <FormControl>
         <Input
@@ -29,17 +27,29 @@ const CardForm = (props) => {
           className={styles.input}
           name="code"
           type="text"
-          validate={['code']}
+          validate={['required', 'code']}
           placeholder="Security code"
         />
       </FormControl>
     </FormGroup>
     <FormGroup>
       <FormControl>
-        <Select className={styles.select} name="month" options={ range(1, 12) } placeholder="Month" />
+        <Select
+          className={styles.select}
+          name="month"
+          options={ range(1, 12) }
+          placeholder="Month"
+          validate={['required']}
+        />
       </FormControl>
       <FormControl>
-        <Select className={styles.select} options={range(2012, 2032)} placeholder="Year" />
+        <Select
+          className={styles.select}
+          options={range(2012, 2032)}
+          placeholder="Year"
+          name="year"
+          validate={['required']}
+        />
       </FormControl>
     </FormGroup>
   </form>;

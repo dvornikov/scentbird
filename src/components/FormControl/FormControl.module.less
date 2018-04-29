@@ -7,8 +7,16 @@
 .form__control + .form__help,
 .form__help + .form__help {
   padding-left: 20px;
+
+  @media (max-width: 414px) {
+    padding: 0;
+  }
 }
 
 .form__control + .form__control {
   padding-left: 20px;
+
+  @media (max-width: 414px) {
+    padding: 0;
+  }
 }

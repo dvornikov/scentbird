@@ -1,64 +1,32 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import Input from '../Input'
 import FormGroup from '../FormGroup'
 import FormControl from '../FormControl'
+import { withFormSection } from '../HOCForm'
 
-class LoginForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      values: {}
-    }
-    this.updateValue = this.updateValue.bind(this);
-  }
-
-  getChildContext() {
-    return {
-      formName: "login",
-      values: this.state.values,
-      update: this.updateValue
-    };
-  }
-
-  updateValue(name, value) {
-    this.setState((prevState, props) => ({
-      values: {
-        ...prevState.values,
-        [name]: value
-      }
-    }));
-  }
-
-  render() {
-    return <form className="form">
-      <FormGroup>
-        <FormControl>
-          <Input
-            type="text"
-            name="email"
-            validate={['required', 'email']}
-            placeholder="Email address"
-          />
-        </FormControl>
-        <FormControl>
-          <Input
-            type="password"
-            validate={['required']}
-            placeholder="Password"
-          />
-        </FormControl>
-      </FormGroup>
-    </form>;
-  }
+const LoginForm = (props) => {
+  return <form className="form">
+    <FormGroup>
+      <FormControl>
+        <Input
+          type="text"
+          name="email"
+          validate={['required', 'email']}
+          placeholder="Email address"
+        />
+      </FormControl>
+      <FormControl>
+        <Input
+          type="password"
+          name="password"
+          validate={['required']}
+          placeholder="Password"
+        />
+      </FormControl>
+    </FormGroup>
+  </form>;
 }
-
-LoginForm.childContextTypes = {
-  formName: PropTypes.string,
-  values: PropTypes.object,
-  update: PropTypes.func
-};
 
 LoginForm.propTypes = {};
 
-export default LoginForm;
+export default withFormSection(LoginForm, "login");

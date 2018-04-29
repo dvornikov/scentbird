@@ -4,51 +4,10 @@ body {
   color: #000000;
 }
 
-.offer-summary {
-  border: 1px solid #E6E6E6;
-  padding: 30px;
-}
-
-.offer-summary__header {
-  text-align: center;
-  padding-bottom: 30px;
-}
-
-.offer-summary__prices {
-  padding: 15px 0;
-  border-top: 1px solid #E6E6E6;
-  border-bottom: 1px solid #E6E6E6;
-}
-
-.offer-summary__total {
-  font-size: 16px;
-  text-transform: uppercase;
-  padding-top: 15px;
-}
-
-.offer-summary__footer {
-  padding-top: 30px;
-  font-size: 16px;
-}
-
-.offer-summary__link {
-  display: inline-block;
-  border-bottom: 1px dashed #FF408E;
-  color: #FF408E;
-  text-decoration: none;
-}
-
-.notice {
-  padding-top: 30px;
-}
-
-.notice__image {
-  display: block;
-  width: 100%;
-}
-
 .page-header {
   font-size: 36px;
+  line-height: 1.05em;
+  font-weight: normal;
   margin: 0;
 }
 
@@ -56,6 +15,8 @@ body {
   display: block;
   font-size: 16px;
   font-weight: normal;
+  line-height: 1.05em;
+  padding-top: 10px;
   color: #FF408E;
 }
 
@@ -67,4 +28,28 @@ h3 {
 
 .section + .section {
   padding-top: 50px;
+}
+
+.section__additional {
+  padding-top: 20px;
+}
+
+.actions {
+  padding: 30px 0;
+  text-align: right;
+}
+
+.actions__item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.actions__item + .actions__item {
+  margin-left: 40px;
+}
+
+.actions__link {
+  color: #999;
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }

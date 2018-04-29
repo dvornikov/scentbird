@@ -44,6 +44,14 @@ class Input extends Component {
     return !errors.length;
   }
 
+  componentWillMount() {
+    this.removeValidationFromContext = this.context.registerValidation(show => this.isValid(show));
+  }
+
+  componentWillUnmount() {
+    this.removeValidationFromContext();
+  }
+
   onBlur() {
     this.isValid(true);
   }
@@ -78,7 +86,8 @@ Input.contextTypes = {
   formName: PropTypes.string,
   validate: PropTypes.arrayOf(PropTypes.string),
   update: PropTypes.func.isRequired,
-  values: PropTypes.object.isRequired
+  values: PropTypes.object.isRequired,
+  registerValidation: PropTypes.func.isRequired
 };
 
 export default CSSModules(Input, styles, { allowMultiple: true });

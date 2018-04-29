@@ -1,6 +1,10 @@
 .form__group {
   display: flex;
   align-items: center;
+
+  @media (max-width: 414px) {
+    display: block;
+  }
 }
 
 .form__group + .form__group {

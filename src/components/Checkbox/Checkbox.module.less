@@ -1,0 +1,79 @@
+.control {
+  @bl: ~".control";
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+
+  &_checkbox {
+    padding-left: 30px;
+    line-height: 22px;
+
+    // Hide default browser input
+    input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      left: 0;
+      top: 0;
+    }
+
+    input:checked ~ @{bl}__indicator::after {
+      display: block; // Show check
+    }
+
+    @{bl}__indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background: #FF6BA6;
+      border: 1px solid #FF458F;
+      // border-radius: .25rem;
+
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: none; // Hide check
+
+        // Checkbox tick
+        & {
+          left: 7px;
+          top: 3px;
+          width: 4px;
+          height: 8px;
+          border: 1px solid #fff;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+
+        // Disabled tick colour
+        @{bl}_checkbox input:disabled ~ & {
+          border-color: #9ba0a9;
+        }
+      }
+    }
+  }
+
+  &__title {
+    color: #999;
+    font-weight: 400;
+    font-size: 14px;
+
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    vertical-align: middle;
+    line-height: 16px;
+
+    &_disabled {
+      color: #9ba0a9;
+    }
+  }
+}

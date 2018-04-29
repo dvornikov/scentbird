@@ -9,7 +9,6 @@ export function email(value) {
 
 export function code(value) {
     const regex = new RegExp("^[0-9]{3}$");
-    let isValid = true;
 
     if (value === "111") return ['This code is invalid'];
 
@@ -23,14 +22,14 @@ export function card(number) {
     if (!regex.test(number))
       isValid = false;
 
-    return !(luhnCheck(number) && isValid) ? ['This card is invalid'] : [];
+    return !(isValid && luhnCheck(number)) ? ['This card is invalid'] : [];
 }
 
 function luhnCheck(val) {
     var sum = 0;
     for (var i = 0; i < val.length; i++) {
-        var intVal = parseInt(val.substr(i, 1));
-        if (i % 2 == 0) {
+        var intVal = parseInt(val.substr(i, 1), 10);
+        if (i % 2 === 0) {
             intVal *= 2;
             if (intVal > 9) {
                 intVal = 1 + (intVal % 10);
@@ -38,5 +37,5 @@ function luhnCheck(val) {
         }
         sum += intVal;
     }
-    return (sum % 10) == 0;
+    return (sum % 10) === 0;
 }
